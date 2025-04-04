@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Editor</title>
+  <script src="https://code.iconify.design/iconify-icon/1.0.6/iconify-icon.min.js"></script>
+  <style>
+    /* Reset and basic styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: row;
+      background-image: url("https://lpc.opengameart.org/sites/default/files/parallax-space-backgound-animx1.gif");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      margin: 1em;
+    }
+    
+    h1 {
+      margin-bottom: 24px;
+      color: #333;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      color: #fff;
+    }
+    
+    .btn-build {
+      background-color: #3498db;
+    }
+    
+    .btn-build:hover {
+      background-color: #2980b9;
+    }
+    
+    .btn-play {
+      background-color: #2ecc71;
+    }
+    
+    .btn-play:hover {
+      background-color: #27ae60;
+    }
+
+    /**/
+
+    canvas {
+        background-color: black;
+    }
+
+    #game-window {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar {
+        height: 90vh;
+        width: 20vw;
+        background-color: #fff;
+        border-radius: 8px;
+        margin: 1em;
+        padding: 40px;
+        & ul {
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            height: 90%;
+        }
+        & h1 {
+            text-align: center;
+        }
+    }
+
+    .game-object {
+        display:flex;
+        flex-direction: row;
+        
+    }
+
+    .game-object button:nth-of-type(1) {
+        display:flex;
+        flex-direction: row;
+        width: 90%;
+        max-height: 2em;
+    }
+
+    .game-object button:nth-of-type(2) {
+        display:flex;
+        flex-direction: row;
+        width: 10%;
+        max-height: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #game-window {
+        height: 90vh;
+    }
+  </style>
+</head>
+<body>
+    <section id="game-objects" class="sidebar">
+        <h1>Game Objects</h1>
+        <ul>
+            <li  class="game-object">
+                <button>
+                    <iconify-icon icon="majesticons:image-frame"></iconify-icon>
+                    Sprite1
+                </button>
+                <button>
+                    <iconify-icon icon="mingcute:eye-close-line"></iconify-icon>
+                </button>
+            </li>
+            <li  class="game-object" class="dropdown">
+                <button>
+                    <iconify-icon icon="majesticons:image-frame"></iconify-icon>
+                    Sprite2
+                </button>
+                <button>
+                    <iconify-icon icon="mingcute:eye-2-fill"></iconify-icon>
+                </button>
+            </li>
+            <li  class="game-object" class="dropdown">
+                <button>
+                    <iconify-icon icon="mingcute:baseball-2-line"></iconify-icon>
+                    <p>RigidBody</p>
+                </button>
+                <button>
+                    <iconify-icon icon="mingcute:eye-2-fill"></iconify-icon>
+                </button>
+            </li>
+        </ul>
+    </section>
+    <section id="game-window" class="container">
+        <h1>Game Editor</h1>
+        <div>
+            <button class="btn btn-build" id="buildGameBtn">Build Game</button>
+            <button class="btn btn-play" id="playGameBtn">Play Game</button>
+        </div>
+        <canvas id="game-canvas" width="800" height="400"></canvas>
+    </section>
+    <section id="object-editor" class="sidebar">
+      <h1>Sprite1</h1>
+      <h2>Sprite</h2>
+      <ul>
+        <li class="dropdown">
+          <button>
+            <iconify-icon icon="humbleicons:arrows"></iconify-icon>
+            Transform
+          </button>
+        </li>
+        <li class="dropdown">
+          <button>
+            <iconify-icon icon="mingcute:paper-line"></iconify-icon>
+            Add Script
+          </button>
+        </li>
+      </ul>
+      
+      
+    </section>
+  <script>
+    // Redirect to the game type selection page when "Build Game" is clicked
+    document.getElementById("buildGameBtn").addEventListener("click", function() {
+      window.location.href = "build.html";
+    });
+    
+    // Placeholder for the "Play Game" button functionality
+    document.getElementById("playGameBtn").addEventListener("click", function() {
+      alert("Play Game button clicked!");
+    });
+  </script>
+</body>
+</html>
