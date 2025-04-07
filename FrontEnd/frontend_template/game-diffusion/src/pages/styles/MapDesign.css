@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.map-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#mapFrame {
+    width: 100%;
+    height: 600px;
+    border: 2px dashed #999;
+    position: relative;
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+.draggable-box {
+    width: 80px;
+    height: 80px;
+    background: #3498db;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    cursor: move;
+    user-select: none;
+}
+
+#palette {
+    padding: 10px;
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.palette-box {
+    width: 80px;
+    height: 80px;
+    background: #e67e22;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    cursor: grab;
+}
+
+#finishBtn {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background: #27ae60;
+    color: #fff;
+    cursor: pointer;
+}
