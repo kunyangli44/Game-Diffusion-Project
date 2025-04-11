@@ -1,57 +1,154 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, sans-serif;
+/* Page Container */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
     background-color: #f0f2f5;
+    min-height: 100vh;
+  }
+  
+  /* Heading */
+  h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #2c3e50;
+  }
+  
+  h2 {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #2c3e50;
+  }
+  
+  /* Game Type Section */
+  .game-type-select {
+    margin-bottom: 40px;
+  }
+  
+  .game-type-options {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  
+  .game-type-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .game-type-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .game-type-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  
+  /* Align game names and descriptions nicely */
+  .game-type-card h3 {
+    margin: 10px 0 4px;
+    font-size: 18px;
+    font-weight: 700;
+    min-height: 24px;
+  }
+  
+  .game-type-card p {
+    font-size: 14px;
+    color: #555;
+    min-height: 48px;
+  }
+  
+  /* Choose Button */
+  .select-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 8px 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .select-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  /* My Games Section */
+  .my-games {
+    margin-top: 40px;
+  }
+  
+  .game-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .game-item {
+    background-color: #fff;
+    padding: 16px 24px;
+    margin: 10px 0;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    font-size: 16px;
+  }
+  
+  .game-item span {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-.container {
-    background: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    max-width: 400px;
-    width: 90%;
-}
-
-h1 {
-    margin-bottom: 24px;
-    color: #333;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    font-size: 16px;
-    margin: 10px;
+    gap: 8px;
+  }
+  
+  /* Edit Button */
+  .btn-edit {
+    background-color: #e67e22;
+    color: white;
+    padding: 6px 14px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    color: #fff;
-}
-
-.btn-build {
-    background-color: #3498db;
-}
-
-.btn-build:hover {
-    background-color: #2980b9;
-}
-
-.btn-play {
+  }
+  
+  .btn-edit:hover {
+    background-color: #d35400;
+  }
+  
+  /* Play Button */
+  .btn-play {
+    margin-top: 30px;
     background-color: #2ecc71;
-}
-
-.btn-play:hover {
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-play:hover {
     background-color: #27ae60;
-}
+  }
+  
+  .empty-msg {
+    font-style: italic;
+    color: #888;
+  }
+  

@@ -1,0 +1,40 @@
+.landing-container {
+  text-align: center;
+  margin-top: 80px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.landing-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.auth-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.auth-toggle button {
+  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.auth-toggle button:hover {
+  background-color: #dcdcdc;
+}
+
+.auth-toggle button.active {
+  background-color: #000;
+  color: white;
+}
