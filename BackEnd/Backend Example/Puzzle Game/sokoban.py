@@ -1,12 +1,16 @@
+import time
+
 import pygame
+
 from constants import *
 from utils import *
+
 
 class Sokoban:
     def __init__(self, level_map):
         """
         Initialize the Sokoban game with the given level map.
-        Sets up the pygame window, screen, board state, and font.
+        Sets up the pygame window, screen, board state, buttons, and font.
         """
         pygame.init()
         self.screen = pygame.display.set_mode(size)
@@ -17,6 +21,16 @@ class Sokoban:
         self.board = [row[:] for row in level_map]
 
         self.font = pygame.font.SysFont("sans", 60, bold=True)
+        self.font_small = pygame.font.SysFont("sans", 20)
+
+        # Timer
+        self.start_time = time.time()
+        self.elapsed_time = 0
+        self.win = False
+
+        # Restart button & attempt count
+        self.button_rect = pygame.Rect(20, 40, 60, 30)  # (x, y, width, height)
+        self.attempts = 0
 
     def paint_cell(self, cell, x, y):
         """
@@ -54,14 +68,31 @@ class Sokoban:
             for x, cell in enumerate(row):
                 self.paint_cell(cell, x, y)
 
+        # Restart button
+        pygame.draw.rect(self.screen, colors[BUTTON], self.button_rect)
+        button_label = self.font_small.render("Restart", True, (255, 255, 255))
+        self.screen.blit(button_label, (24, 44))
+
+        if not self.win:
+            self.elapsed_time = int(time.time() - self.start_time)
+        # Draw timer at top left
+        timer_text = self.font_small.render(f"Time: {self.elapsed_time}s", True, (0, 0, 0))
+        self.screen.blit(timer_text, (20, 10))
+
         # Win condition: all VOID cells are filled and enough SUCCESS_BLOCKs exist
         void_count = sum(row.count(VOID) for row in self.board)
         success_count = sum(row.count(SUCCESS_BLOCK) for row in self.board)
         if void_count == 0 and success_count >= 6:
             # Show win message
+            self.win = True
+            # Win screen
             self.screen.fill((17, 17, 17))
-            text = self.font.render("A Winner is You!", True, colors[SUCCESS_BLOCK])
-            self.screen.blit(text, (65, 300))
+            win_msg = self.font.render("U WIN!!", True, colors[SUCCESS_BLOCK])
+            time_msg = self.font.render(f"Time: {self.elapsed_time}s", True, (255, 255, 255))
+            attempt_msg = self.font.render(f"Attempts: {self.attempts}", True, (255, 255, 255))
+            self.screen.blit(win_msg, (65, 250))
+            self.screen.blit(time_msg, (65, 320))
+            self.screen.blit(attempt_msg, (65, 390))
 
         pygame.display.flip()
 
@@ -136,3 +167,13 @@ class Sokoban:
             self.move_player(player, direction)
         elif isBlock(adj):
             self.move_player_and_boxes(player, direction)
+
+    def restart(self):
+        """
+        Restart the game
+        """
+        self.board = [row[:] for row in self.level_map]
+        self.start_time = time.time()
+        self.elapsed_time = 0
+        self.win = False
+        self.attempts += 1

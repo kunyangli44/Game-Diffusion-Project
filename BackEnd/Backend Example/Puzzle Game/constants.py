@@ -5,6 +5,7 @@ BLOCK = 'block'
 SUCCESS_BLOCK = 'success_block'
 VOID = 'void'
 PLAYER = 'player'
+BUTTON = 'button'
 
 # Directions as (dx, dy)
 directions = {
@@ -26,6 +27,7 @@ colors = {
     SUCCESS_BLOCK: (76, 205, 90),
     VOID: (223, 187, 177),
     PLAYER: (79, 153, 232),
+    BUTTON: (50, 50, 50)
 }
 
 # Initial game map (level 1)
