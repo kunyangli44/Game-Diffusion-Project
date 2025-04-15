@@ -1,0 +1,58 @@
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  
+  .nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  .btn {
+    padding: 10px 22px;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+  }
+  
+  .btn:hover {
+    opacity: 0.9;
+  }
+  
+  .btn-back {
+    background-color: #7f8c8d;
+    color: white;
+  }
+  
+  .btn-next {
+    background-color: #27ae60;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .selected-game-info {
+    margin-top: -10px;
+    margin-bottom: 30px;
+  }
+
+  .preview-image {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px; 
+  }
+
+  .bottom-section {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
