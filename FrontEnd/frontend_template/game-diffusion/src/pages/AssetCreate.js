@@ -1,25 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './styles/CharacterCreate.css';
+import './styles/AssetCreate.css';
 
-const CharacterCreate = () => {
+const AssetCreate = ({ title, nextPath, backPath, confirmPath, previewImage }) => {
+
   const canvasRef = useRef(null);
   const [showImage, setShowImage] = useState(false);
   const [gameType, setGameType] = useState(null);
   const navigate = useNavigate();
 
-  // Load selected game type info
   useEffect(() => {
     const storedGameType = localStorage.getItem('selectedGameTypeData');
     if (storedGameType) {
       setGameType(JSON.parse(storedGameType));
     }
-  }, []);
-
-  useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-
     const resizeCanvas = () => {
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
@@ -51,9 +47,7 @@ const CharacterCreate = () => {
 
   return (
     <div className="container">
-      <h1>Create Your Game Character</h1>
-
-      {/* Game type preview */}
+      <h1>{title}</h1>
       {gameType && (
         <div className="selected-game-info">
           <img src={gameType.image} alt={gameType.name} className="game-preview-gif" />
@@ -61,11 +55,12 @@ const CharacterCreate = () => {
           <p>{gameType.description}</p>
         </div>
       )}
-
       <div className="nav-buttons">
-        <button className="btn btn-back" onClick={() => navigate('/dashboard')}>
-        🏠 Back to Dashboard
-        </button>
+        {backPath && (
+          <button className="btn btn-back" onClick={() => navigate(backPath)}>
+            ⬅ Back
+          </button>
+        )}
         <button
           className="btn btn-clear"
           onClick={() => {
@@ -95,14 +90,11 @@ const CharacterCreate = () => {
 
       {showImage && (
         <div className="bottom-section show">
-          <p>Generated Character Image:</p>
-          <img
-            src="/character.png"
-            alt="Character"
-          />
+          <p>Generated Preview:</p>
+          <img src={previewImage || "/placeholder.jpg"} alt="Preview" className="preview-image" />
           <div className="confirm-section">
-            <button className="btn btn-confirm" onClick={() => navigate('/box')}>
-              Confirm Character
+            <button className="btn btn-confirm" onClick={() => navigate(confirmPath || nextPath)}>
+              Confirm and Continue
             </button>
           </div>
         </div>
@@ -111,4 +103,4 @@ const CharacterCreate = () => {
   );
 };
 
-export default CharacterCreate;
+export default AssetCreate;

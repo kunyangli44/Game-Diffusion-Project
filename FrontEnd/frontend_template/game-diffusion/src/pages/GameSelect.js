@@ -11,7 +11,7 @@ const GameSelect = () => {
       id: 'sokoban',
       name: 'Sokoban-style',
       description: 'Grid-based puzzle where the player pushes boxes onto goal tiles.',
-      image: '/Sokoban.gif'
+      image: '/Sokoban_ani.gif'
     },
     {
       id: 'topdown',
