@@ -10,7 +10,8 @@ import SignIn from './pages/SignIn';
 import Landing from './pages/Landing';
 import GameSelect from './pages/GameSelect';
 import CharacterCreate from './pages/CharacterCreate';
-import MapDesign from './pages/MapDesign';
+// import MapDesign from './pages/MapDesign';
+import Editor from "./pages/Editor";
 
 // Asset creation pages
 import BoxCreate from './pages/BoxCreate';
@@ -41,8 +42,8 @@ function App() {
         <Route path="/goal" element={<GoalCreate />} />
         <Route path="/background" element={<BackgroundCreate />} />
 
-        {/* Final Map Design */}
-        <Route path="/map" element={<MapDesign />} />
+        {/* Game Editor Page */}
+        <Route path="/editor" element={<Editor />} />
       </Routes>
     </GoogleOAuthProvider>
   );
