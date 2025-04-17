@@ -119,15 +119,15 @@ class ImageBox extends Component {
         super(props);
         this.state = {
             isDropDownVisible: false,
-        }
-        this.state = {
             image: null
         }
-
+        this.fileInputRef = React.createRef();
         this.onDropdownClicked = this.onDropdownClicked.bind(this);
+        this.onClearImageClicked = this.onClearImageClicked.bind(this);
+        this.onDropZoneClicked = this.onDropZoneClicked.bind(this);
         this.handleDrop = this.handleDrop.bind(this);
         this.handleDragOver = this.handleDragOver.bind(this);
-        this.handleFileInput = this.handleFileInput.bind(this);
+        this.handleFileSelect = this.handleFileSelect.bind(this);
     }
 
     onDropdownClicked(event) {
@@ -138,7 +138,6 @@ class ImageBox extends Component {
     }
 
     handleDrop(event) {
-        alert("Image dropped!");
         event.preventDefault();
         const files = event.dataTransfer.files;
         if (files.length > 0) {
@@ -160,18 +159,31 @@ class ImageBox extends Component {
         event.preventDefault(); // Allow drop by preventing default behavior
     };
 
-    handleFileInput(event) {
-        alert("File inputted!");
-        const file = event.target.files[0];
-        if (file && file.type.startsWith("image/")) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                this.setState(() => {return{image:e.target.result};}); 
-            };
-            reader.readAsDataURL(file);
-            console.log(this.state.image);
+    onClearImageClicked() {
+        this.setState(() => {return{image: null};});
+    }
+
+    onDropZoneClicked() {
+        // Programmatically trigger the file dialog
+        this.fileInputRef.current.click();
+    }
+    
+    handleFileSelect(event) {
+        const files = event.target.files;
+        if (files.length > 0) {
+            const file = files[0];
+            if (file.type.startsWith("image/")) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    this.setState(() => {return{image:e.target.result};}, () => {console.log(this.state.image);}); // Save image preview in state
+                };
+                reader.readAsDataURL(file);
+                
+            } else {
+                alert("Please drop an image file!");
+            }
         }
-    };
+    }
 
     render() {
         return (
@@ -194,7 +206,7 @@ class ImageBox extends Component {
                                 border: "1px solid #ccc",
                             }}
                         />
-                        <button><strong>Clear Image</strong></button>
+                        <button onClick={this.onClearImageClicked}><strong>Clear Image</strong></button>
                         </div>
                     :
                     <div
@@ -212,8 +224,15 @@ class ImageBox extends Component {
                         }}
                         onDrop={this.handleDrop}
                         onDragOver={this.handleDragOver}
+                        onClick={this.onDropZoneClicked}
                     >
                         Drag & Drop Image
+                        <input
+                            type="file"
+                            ref={this.fileInputRef}
+                            style={{ display: "none", width:"0px", height:"0px"}}
+                            onChange={this.handleFileSelect}
+                        />
                     </div>
                     }
                 </div>
