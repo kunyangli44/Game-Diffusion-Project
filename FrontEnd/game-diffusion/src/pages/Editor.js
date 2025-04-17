@@ -3,7 +3,7 @@ import { EditorView } from '../components/components';
 import './styles/Editor.css';
 const EditorPage = () => {
     return (
-        <div>
+        <div className="editor-page">
             <EditorView />
         </div>
     );

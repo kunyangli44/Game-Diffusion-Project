@@ -1,23 +1,27 @@
-/* Reset and basic styles */
-* {
+/* Wrapping editor-page */
+.editor-page * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
-body {
+.editor-page {
     font-family: Arial, sans-serif;
     background-color: #FF6B01;
-    /*
-    background-image: url("https://lpc.opengameart.org/sites/default/files/parallax-space-backgound-animx1.gif");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    */
 }
 
-.container {
+/*body {*/
+/*    font-family: Arial, sans-serif;*/
+/*    background-color: #FF6B01;*/
+/*    !**/
+/*    background-image: url("https://lpc.opengameart.org/sites/default/files/parallax-space-backgound-animx1.gif");*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    background-attachment: fixed;*/
+/*    *!*/
+/*}*/
+
+.editor-page .container {
     background-color: #353535;
     padding: 40px;
     border-radius: 8px;
@@ -26,18 +30,21 @@ body {
     margin: 1em;
 }
 
-h1 {
+.editor-page h1 {
     margin-bottom: 24px;
 }
 
-h1, h2, p, label {
+.editor-page h1,
+.editor-page h2,
+.editor-page p,
+.editor-page label {
     color: #fff;
 }
 
 
 
 /* CSS */
-.btn {
+.editor-page .btn {
     align-items: center;
     background-clip: padding-box;
     background-color: #fa6400;
@@ -66,17 +73,17 @@ h1, h2, p, label {
     width: auto;
 }
 
-.btn:hover,
-.btn:focus {
+.editor-page .btn:hover,
+.editor-page .btn:focus {
     background-color: #fb8332;
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 }
 
-.btn:hover {
+.editor-page .btn:hover {
     transform: translateY(-1px);
 }
 
-.btn:active {
+.editor-page .btn:active {
     background-color: #c85000;
     box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
     transform: translateY(0);
@@ -85,17 +92,17 @@ h1, h2, p, label {
 
 /**/
 
-canvas {
+.editor-page canvas {
     background-color: gray;
     box-shadow: 0 6px 10px rgba(0,0,0,0.8);
 }
 
-#game-window {
+.editor-page #game-window {
     display: flex;
     flex-direction: column;
 }
 
-.sidebar {
+.editor-page .sidebar {
     height: 90vh;
     width: 20vw;
     background-color: #353535;
@@ -116,12 +123,12 @@ canvas {
     }
 }
 
-.side-by-side {
+.editor-page .side-by-side {
     display:flex;
     flex-direction: row;
 }
 
-.midBtn {
+.editor-page .midBtn {
     display:flex;
     flex-direction: row;
     width: 100%;
@@ -131,7 +138,7 @@ canvas {
     color: #422800;
 }
 
-.sideBtn {
+.editor-page .sideBtn {
     display:flex;
     flex-direction: row;
     width: 10%;
@@ -144,15 +151,16 @@ canvas {
     color: #422800;
 }
 
-.midBtn:hover, .sideBtn:hover {
+.editor-page .midBtn:hover,
+.editor-page .sideBtn:hover {
     filter: brightness(95%);
 }
 
-#game-window {
+.editor-page #game-window {
     height: 90vh;
 }
 
-.hidden {
+.editor-page .hidden {
     height: 0;
     width: 0;
     overflow: hidden;
