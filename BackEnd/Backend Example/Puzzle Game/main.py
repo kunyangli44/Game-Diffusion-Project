@@ -22,7 +22,7 @@ def main():
 
             elif event.type == pygame.KEYDOWN:
                 # Move player on key press
-                # print("Key pressed:", event.key)
+                print("Key pressed:", event.key)
                 if event.key in (pygame.K_UP, pygame.K_w):
                     sokoban.move(directions['up'])
                 elif event.key in (pygame.K_DOWN, pygame.K_s):
@@ -31,8 +31,6 @@ def main():
                     sokoban.move(directions['left'])
                 elif event.key in (pygame.K_RIGHT, pygame.K_d):
                     sokoban.move(directions['right'])
-
-
 
     clock.tick(10)
 
