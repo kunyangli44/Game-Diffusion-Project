@@ -7,6 +7,7 @@
 .editor-page {
     font-family: Arial, sans-serif;
     background-color: #FF6B01;
+    min-height: 100vh;
 }
 
 /*body {*/
@@ -110,17 +111,29 @@
     margin: 1em;
     padding: 40px;
     box-shadow: 0 6px 10px rgba(0,0,0,0.8);
-    & ul {
-        list-style-type: none;
-        display: flex;
-        flex-direction: column;
-        background-color: rgba(35,35,35,0.8);
-        height: 90%;
-        border-radius: 8px;
-    }
-    & h1 {
-        text-align: center;
-    }
+    /*& ul {*/
+    /*    list-style-type: none;*/
+    /*    display: flex;*/
+    /*    flex-direction: column;*/
+    /*    background-color: rgba(35,35,35,0.8);*/
+    /*    height: 90%;*/
+    /*    border-radius: 8px;*/
+    /*}*/
+    /*& h1 {*/
+    /*    text-align: center;*/
+    /*}*/
+}
+.editor-page .sidebar ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(35,35,35,0.8);
+    height: 90%;
+    border-radius: 8px;
+}
+
+.editor-page .sidebar h1 {
+    text-align: center;
 }
 
 .editor-page .side-by-side {
