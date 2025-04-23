@@ -6,3 +6,5 @@ passlib[bcrypt]
 torch
 opencv-python
 motor
+google-auth
+requests
